@@ -497,13 +497,14 @@
     "evidence": [
       "SKILL.md: Choose the smallest working route, Source checks and release identity, and Verify and report cover the supplied recovery guide.",
       "references/advanced-architecture.md: Sections 2 and 5 still describe the apply account as read-only although templates/cam-policy-inbox-reader.json permits outbox writes.",
-      "evals/evals.json: scenarios 1-13 cover release recovery, identity, cleanup, shared hosts, authorized hosted routes, organization pools and isolated persistent caches."
+      "references/ksamint-runners-cache.md: dated API readback records the ksamint all-repository pool while separating scheduling access, job privileges, isolation and CPU performance.",
+      "evals/evals.json: scenarios 1-15 cover release recovery, identity, cleanup, shared hosts, authorized hosted routes, organization pools, isolated persistent caches and toolchain/performance gates."
     ],
     "overlaps": [
       "ksamint-githubaction-skill"
     ],
-    "reviewedAt": "2026-09-19",
-    "reviewedHash": "e61c413b9f12f82b4099242d535e5fd748c6f7f88227d26e3c60869aa49f5c00",
+    "reviewedAt": "2026-09-20",
+    "reviewedHash": "0df8c60fd13b6b572d5f65d5e79fb5848451b0a9714c398ae5cc95605f4089d7",
     "commandId": "k028"
   },
   {

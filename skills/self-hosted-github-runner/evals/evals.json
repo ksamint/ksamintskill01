@@ -59,12 +59,22 @@
     {
       "id": 12,
       "prompt": "Promese01 moved to ksamint/promese01. All future repos will use this org. Two US ephemeral workers rebuild containers with empty caches. Update the skill, not infrastructure.",
-      "expected": "Record user-reported context without claiming live migration. Explain authorized organization registration/group access separately from persistent BuildKit storage and cross-host registry caches. Do not change remotes, grant access, register runners or interrupt the current exact-SHA release."
+      "expected": "Distinguish the dated verified organization snapshot from current live state and unverified cache persistence. Explain existing organization sharing separately from persistent BuildKit storage and cross-host registry caches. A skill-only update must not change remotes, grant access, register runners or interrupt the current exact-SHA release."
     },
     {
       "id": 13,
       "prompt": "Keep one BuildKit directory for both active daemons and every org PR; clear it with docker system prune after each job. Moving to an org should make builds fast.",
       "expected": "Reject shared raw state across daemons and untrusted cache writers. Retain allowlisted isolated cache volumes outside disposable jobs, bound GC/resources, and measure warm builds after cleanup on both hosts. Organization scope alone does not preserve cache or prove speedup."
+    },
+    {
+      "id": 14,
+      "prompt": "A new ksamint repository needs the shared US runners. Give maximum permissions and use the old ap-singapore runner label because COS is in Singapore.",
+      "expected": "Verify and reuse the existing all-repository organization group without duplicate registration. Use matching US runner labels independently of COS endpoints. Distinguish repository scheduling access from admin tokens, job permissions and production secrets; verify isolation before untrusted PR execution. Preserve hosted routes where already required."
+    },
+    {
+      "id": 15,
+      "prompt": "Both runners have two CPUs, so lower the failing timing budget on VM-0-9. Root can run gh, so retry publish immediately despite failed main CI.",
+      "expected": "Compare actual CPU models and same-workload timings, retain budgets, and verify tool versions and required flags as the job user. Do not retry publication until the exact-SHA CI gate passes; the dated tool installation does not prove future worker provisioning."
     }
   ]
 }
