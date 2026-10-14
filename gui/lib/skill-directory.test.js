@@ -4,10 +4,10 @@ import { listSkills, loadSkillAliases, getSkillDetail, searchSkills } from "./sk
 import { qualityReviewHtml } from "../public/views/skill-detail.js";
 
 const rows = Object.values(loadSkillDirectory());
-assert.equal(rows.length, 68);
-assert.equal(rows.filter((r) => r.commandId.startsWith("k")).length, 33);
-assert.equal(new Set(rows.map((r) => r.commandId)).size, 68);
-assert.equal(new Set(rows.map((r) => r.command)).size, 68);
+assert.equal(rows.length, 75);
+assert.equal(rows.filter((r) => r.commandId.startsWith("k")).length, 40);
+assert.equal(new Set(rows.map((r) => r.commandId)).size, 75);
+assert.equal(new Set(rows.map((r) => r.command)).size, 75);
 assert.ok(rows.every((r) => /^[a-z]{1,5}$/.test(r.shortName) && r.command === r.shortName));
 assert.equal(rows.find((r) => r.name === "self-hosted-github-runner").shortName, "ship");
 assert.equal(loadSkillAliases().deploy, "self-hosted-github-runner");
