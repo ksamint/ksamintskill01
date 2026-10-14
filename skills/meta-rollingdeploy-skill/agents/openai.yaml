@@ -1,0 +1,4 @@
+interface:
+  display_name: "Progressive Production Rollout"
+  short_description: "Evidence-driven shadow and canary production releases"
+  default_prompt: "Use $meta-rollingdeploy-skill to plan and execute this production rollout safely and quickly."

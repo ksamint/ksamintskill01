@@ -33,3 +33,10 @@ repo-architecture-audit	cursor,claude,codex
 fileye	cursor,claude,codex
 orchestrate-development	cursor,claude,codex
 self-hosted-github-runner	codex
+1auto-cli01	codex
+op-cli-preflight	codex
+codex-with-chatgpt	codex
+local-environment-audit	codex
+meta-rollingdeploy-skill	codex
+report-native-fidelity	codex
+shopmenu	codex

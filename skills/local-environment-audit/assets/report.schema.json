@@ -1,0 +1,760 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Local Environment Audit Report 1.0",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "skill_version",
+    "report_state",
+    "mode",
+    "audit_id",
+    "target",
+    "baseline",
+    "authorization",
+    "observation_window",
+    "overall_result",
+    "summary",
+    "controls",
+    "evidence",
+    "network_tests",
+    "repeatability",
+    "proposed_changes",
+    "observation_actions",
+    "configuration_changes",
+    "limitations",
+    "sources",
+    "redaction_notes"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "skill_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "report_state": {
+      "enum": [
+        "draft",
+        "complete"
+      ]
+    },
+    "mode": {
+      "enum": [
+        "read-only",
+        "remediate-authorized"
+      ]
+    },
+    "audit_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "target": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "device_alias",
+        "profile_alias",
+        "execution_relationship",
+        "binding_evidence_ids"
+      ],
+      "properties": {
+        "device_alias": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "profile_alias": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "execution_relationship": {
+          "type": "string",
+          "minLength": 1
+        },
+        "binding_evidence_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^E[0-9]{3,}$"
+          },
+          "uniqueItems": true
+        }
+      }
+    },
+    "baseline": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "purpose",
+        "time_policy",
+        "network_policy",
+        "persistence_policy",
+        "required_functions"
+      ],
+      "properties": {
+        "purpose": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "time_policy": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "network_policy": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "persistence_policy": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "required_functions": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "authorization": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "read_scope",
+        "external_tests",
+        "lifecycle_actions",
+        "remediation",
+        "artifact_location"
+      ],
+      "properties": {
+        "read_scope": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "external_tests": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "lifecycle_actions": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "remediation": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "artifact_location": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "observation_window": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "started_at",
+        "ended_at",
+        "clock_accuracy_verified"
+      ],
+      "properties": {
+        "started_at": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        },
+        "ended_at": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        },
+        "clock_accuracy_verified": {
+          "type": "boolean"
+        }
+      }
+    },
+    "overall_result": {
+      "enum": [
+        "action-required",
+        "incomplete",
+        "review-required",
+        "meets-baseline-for-tested-scope"
+      ]
+    },
+    "summary": {
+      "type": "string",
+      "minLength": 1
+    },
+    "controls": {
+      "type": "object",
+      "required": [
+        "CTX-01",
+        "CTX-02",
+        "CTX-03",
+        "CTX-04",
+        "HST-01",
+        "HST-02",
+        "HST-03",
+        "HST-04",
+        "TIM-01",
+        "TIM-02",
+        "TIM-03",
+        "PRF-01",
+        "PRF-02",
+        "PRF-03",
+        "NET-01",
+        "NET-02",
+        "NET-03",
+        "NET-04",
+        "NET-05",
+        "NET-06",
+        "NET-07",
+        "NET-08",
+        "IDN-01",
+        "IDN-02",
+        "IDN-03",
+        "DSP-01",
+        "DSP-02",
+        "DSP-03",
+        "PRV-01",
+        "PRV-02",
+        "PRV-03",
+        "PRV-04",
+        "DAT-01",
+        "DAT-02",
+        "DAT-03",
+        "SEC-01",
+        "SEC-02",
+        "SEC-03",
+        "SEC-04",
+        "SEC-05",
+        "STB-01",
+        "STB-02",
+        "STB-03",
+        "RPT-01",
+        "RPT-02",
+        "RPT-03"
+      ],
+      "properties": {
+        "CTX-01": {
+          "$ref": "#/$defs/control"
+        },
+        "CTX-02": {
+          "$ref": "#/$defs/control"
+        },
+        "CTX-03": {
+          "$ref": "#/$defs/control"
+        },
+        "CTX-04": {
+          "$ref": "#/$defs/control"
+        },
+        "HST-01": {
+          "$ref": "#/$defs/control"
+        },
+        "HST-02": {
+          "$ref": "#/$defs/control"
+        },
+        "HST-03": {
+          "$ref": "#/$defs/control"
+        },
+        "HST-04": {
+          "$ref": "#/$defs/control"
+        },
+        "TIM-01": {
+          "$ref": "#/$defs/control"
+        },
+        "TIM-02": {
+          "$ref": "#/$defs/control"
+        },
+        "TIM-03": {
+          "$ref": "#/$defs/control"
+        },
+        "PRF-01": {
+          "$ref": "#/$defs/control"
+        },
+        "PRF-02": {
+          "$ref": "#/$defs/control"
+        },
+        "PRF-03": {
+          "$ref": "#/$defs/control"
+        },
+        "NET-01": {
+          "$ref": "#/$defs/control"
+        },
+        "NET-02": {
+          "$ref": "#/$defs/control"
+        },
+        "NET-03": {
+          "$ref": "#/$defs/control"
+        },
+        "NET-04": {
+          "$ref": "#/$defs/control"
+        },
+        "NET-05": {
+          "$ref": "#/$defs/control"
+        },
+        "NET-06": {
+          "$ref": "#/$defs/control"
+        },
+        "NET-07": {
+          "$ref": "#/$defs/control"
+        },
+        "NET-08": {
+          "$ref": "#/$defs/control"
+        },
+        "IDN-01": {
+          "$ref": "#/$defs/control"
+        },
+        "IDN-02": {
+          "$ref": "#/$defs/control"
+        },
+        "IDN-03": {
+          "$ref": "#/$defs/control"
+        },
+        "DSP-01": {
+          "$ref": "#/$defs/control"
+        },
+        "DSP-02": {
+          "$ref": "#/$defs/control"
+        },
+        "DSP-03": {
+          "$ref": "#/$defs/control"
+        },
+        "PRV-01": {
+          "$ref": "#/$defs/control"
+        },
+        "PRV-02": {
+          "$ref": "#/$defs/control"
+        },
+        "PRV-03": {
+          "$ref": "#/$defs/control"
+        },
+        "PRV-04": {
+          "$ref": "#/$defs/control"
+        },
+        "DAT-01": {
+          "$ref": "#/$defs/control"
+        },
+        "DAT-02": {
+          "$ref": "#/$defs/control"
+        },
+        "DAT-03": {
+          "$ref": "#/$defs/control"
+        },
+        "SEC-01": {
+          "$ref": "#/$defs/control"
+        },
+        "SEC-02": {
+          "$ref": "#/$defs/control"
+        },
+        "SEC-03": {
+          "$ref": "#/$defs/control"
+        },
+        "SEC-04": {
+          "$ref": "#/$defs/control"
+        },
+        "SEC-05": {
+          "$ref": "#/$defs/control"
+        },
+        "STB-01": {
+          "$ref": "#/$defs/control"
+        },
+        "STB-02": {
+          "$ref": "#/$defs/control"
+        },
+        "STB-03": {
+          "$ref": "#/$defs/control"
+        },
+        "RPT-01": {
+          "$ref": "#/$defs/control"
+        },
+        "RPT-02": {
+          "$ref": "#/$defs/control"
+        },
+        "RPT-03": {
+          "$ref": "#/$defs/control"
+        }
+      },
+      "additionalProperties": false
+    },
+    "evidence": {
+      "type": "object",
+      "propertyNames": {
+        "pattern": "^E[0-9]{3,}$"
+      },
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "source_kind",
+          "acquired_at",
+          "source_event_time",
+          "target_alias",
+          "context",
+          "method",
+          "sanitized_value",
+          "limitations",
+          "redaction"
+        ],
+        "properties": {
+          "source_kind": {
+            "enum": [
+              "direct-configuration",
+              "direct-runtime",
+              "direct-network",
+              "user-supplied",
+              "vendor-documentation"
+            ]
+          },
+          "acquired_at": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date-time"
+          },
+          "source_event_time": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "target_alias": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "context": {
+            "type": "string",
+            "minLength": 1
+          },
+          "method": {
+            "type": "string",
+            "minLength": 1
+          },
+          "sanitized_value": {},
+          "limitations": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "redaction": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "network_tests": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "repeatability": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "proposed_changes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "target",
+          "setting",
+          "current_value",
+          "intended_value",
+          "benefit",
+          "prerequisites",
+          "risk",
+          "approval",
+          "validation",
+          "rollback"
+        ],
+        "properties": {
+          "target": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "setting": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "current_value": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "intended_value": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "benefit": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "prerequisites": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "risk": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "approval": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "validation": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "rollback": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "observation_actions": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "configuration_changes": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "title",
+          "url",
+          "accessed_at"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1
+          },
+          "url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "accessed_at": {
+            "type": "string",
+            "format": "date"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "redaction_notes": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "mode": {
+            "const": "read-only"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "configuration_changes": {
+            "maxItems": 0
+          }
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "control": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "domain",
+        "outcome",
+        "expected",
+        "observed",
+        "evidence_ids",
+        "rationale",
+        "severity",
+        "confidence",
+        "next_action"
+      ],
+      "properties": {
+        "domain": {
+          "type": "string",
+          "minLength": 1
+        },
+        "outcome": {
+          "enum": [
+            "PASS",
+            "FAIL",
+            "REVIEW",
+            "BLOCKED",
+            "NOT_TESTED",
+            "NOT_APPLICABLE"
+          ]
+        },
+        "expected": {
+          "type": "string",
+          "minLength": 1
+        },
+        "observed": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "evidence_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^E[0-9]{3,}$"
+          },
+          "uniqueItems": true
+        },
+        "rationale": {
+          "type": "string",
+          "minLength": 1
+        },
+        "severity": {
+          "enum": [
+            null,
+            "critical",
+            "high",
+            "moderate",
+            "low",
+            "informational"
+          ]
+        },
+        "confidence": {
+          "enum": [
+            null,
+            "high",
+            "medium",
+            "low"
+          ]
+        },
+        "next_action": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "outcome": {
+                "enum": [
+                  "PASS",
+                  "FAIL",
+                  "REVIEW"
+                ]
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "evidence_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "pattern": "^E[0-9]{3,}$"
+                },
+                "uniqueItems": true,
+                "minItems": 1
+              },
+              "confidence": {
+                "enum": [
+                  "high",
+                  "medium",
+                  "low"
+                ]
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

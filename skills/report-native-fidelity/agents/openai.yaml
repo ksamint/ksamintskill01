@@ -1,0 +1,3 @@
+interface:
+  display_name: "Report Native Fidelity"
+  short_description: "Rebuild native report pages and verify source fidelity"

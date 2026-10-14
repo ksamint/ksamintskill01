@@ -1,0 +1,4 @@
+interface:
+  display_name: "1auto-cli01"
+  short_description: "Maintain automatic 1Password CLI access for Codex"
+  default_prompt: "Use $1auto-cli01 to verify and troubleshoot local 1Password CLI automation."

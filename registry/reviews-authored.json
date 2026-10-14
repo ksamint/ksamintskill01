@@ -595,5 +595,110 @@
     "reviewedAt": "2026-09-18",
     "reviewedHash": "4842e5581bcfd3e421d84ec8bd6c42bd0202abf0074d87ebd22659dd15c137ce",
     "commandId": "k033"
+  },
+  {
+    "name": "1auto-cli01",
+    "shortName": "1auto-cli01",
+    "command": "1auto-cli01",
+    "purpose": "Maintain vault-scoped 1Password automation on this Mac.",
+    "recommendation": "keep",
+    "quality": "Bounded import review: frontmatter and plaintext-credential checks passed. Runtime verification is limited to the checks recorded for this import; this is not a full workflow audit.",
+    "evidence": [
+      "skills/1auto-cli01/SKILL.md: imported from the existing local Codex skill; credential values stay outside the repository."
+    ],
+    "overlaps": [],
+    "reviewedAt": "2026-10-14",
+    "reviewedHash": "31019eae6ac54e1bdc377cc9236b4957df9ac4ba93a971062d84aaee5801a8d0",
+    "commandId": "k034"
+  },
+  {
+    "name": "op-cli-preflight",
+    "shortName": "op-cli-preflight",
+    "command": "op-cli-preflight",
+    "purpose": "Check 1Password CLI readiness without printing credentials.",
+    "recommendation": "keep",
+    "quality": "Bounded import review: frontmatter and plaintext-credential checks passed. Runtime verification is limited to the checks recorded for this import; this is not a full workflow audit.",
+    "evidence": [
+      "skills/op-cli-preflight/SKILL.md: imported from the existing local Codex skill; credential values stay outside the repository."
+    ],
+    "overlaps": [],
+    "reviewedAt": "2026-10-14",
+    "reviewedHash": "d306736a5ea9fc27b6c164b38c5d4378cea00b7b726d795b83b0ec15f817ad39",
+    "commandId": "k035"
+  },
+  {
+    "name": "codex-with-chatgpt",
+    "shortName": "codex-with-chatgpt",
+    "command": "codex-with-chatgpt",
+    "purpose": "Connect ChatGPT planning and review to Codex execution.",
+    "recommendation": "keep",
+    "quality": "Bounded import review: frontmatter and plaintext-credential checks passed. Runtime verification is limited to the checks recorded for this import; this is not a full workflow audit.",
+    "evidence": [
+      "skills/codex-with-chatgpt/SKILL.md: imported from the existing local Codex skill; credential values stay outside the repository."
+    ],
+    "overlaps": [],
+    "reviewedAt": "2026-10-14",
+    "reviewedHash": "7a961a039755601fb73de17ce5d0c457149949977aa13cfd83793c2043a63b39",
+    "commandId": "k036"
+  },
+  {
+    "name": "local-environment-audit",
+    "shortName": "local-environment-audit",
+    "command": "local-environment-audit",
+    "purpose": "Audit host and browser configuration with evidence.",
+    "recommendation": "keep",
+    "quality": "Bounded import review: frontmatter and plaintext-credential checks passed. Runtime verification is limited to the checks recorded for this import; this is not a full workflow audit.",
+    "evidence": [
+      "skills/local-environment-audit/SKILL.md: imported from the existing local Codex skill; credential values stay outside the repository."
+    ],
+    "overlaps": [],
+    "reviewedAt": "2026-10-14",
+    "reviewedHash": "0d926bba8b838849f4438628cb1ac55d8152097bfa0bd24a929308c79e042c8a",
+    "commandId": "k037"
+  },
+  {
+    "name": "meta-rollingdeploy-skill",
+    "shortName": "meta-rollingdeploy-skill",
+    "command": "meta-rollingdeploy-skill",
+    "purpose": "Plan and verify progressive production releases.",
+    "recommendation": "keep",
+    "quality": "Bounded import review: frontmatter and plaintext-credential checks passed. Runtime verification is limited to the checks recorded for this import; this is not a full workflow audit.",
+    "evidence": [
+      "skills/meta-rollingdeploy-skill/SKILL.md: imported from the existing local Codex skill; credential values stay outside the repository."
+    ],
+    "overlaps": [],
+    "reviewedAt": "2026-10-14",
+    "reviewedHash": "7a3fe41c6a2311e0609804dd274f02e73a7d4096f611841d3412c41c81567d80",
+    "commandId": "k038"
+  },
+  {
+    "name": "report-native-fidelity",
+    "shortName": "report-native-fidelity",
+    "command": "report-native-fidelity",
+    "purpose": "Reconstruct source-bound reports as native HTML and SVG.",
+    "recommendation": "keep",
+    "quality": "Bounded import review: frontmatter and plaintext-credential checks passed. Runtime verification is limited to the checks recorded for this import; this is not a full workflow audit.",
+    "evidence": [
+      "skills/report-native-fidelity/SKILL.md: imported from the existing local Codex skill; credential values stay outside the repository."
+    ],
+    "overlaps": [],
+    "reviewedAt": "2026-10-14",
+    "reviewedHash": "8e0a1a57f15e3266f78e4b64f756b82cf03e1340f951dd1eb8c362b6b308dfb7",
+    "commandId": "k039"
+  },
+  {
+    "name": "shopmenu",
+    "shortName": "shopmenu",
+    "command": "shopmenu",
+    "purpose": "Query restaurant menus and identify 黄骅 shops from addresses.",
+    "recommendation": "keep",
+    "quality": "Bounded import review: frontmatter and plaintext-credential checks passed. Runtime verification is limited to the checks recorded for this import; this is not a full workflow audit.",
+    "evidence": [
+      "skills/shopmenu/SKILL.md: imported from the existing local Codex skill; credential values stay outside the repository."
+    ],
+    "overlaps": [],
+    "reviewedAt": "2026-10-14",
+    "reviewedHash": "551c6b215520d46409362b3be452a28f78ce20dece1cd11719e37f90a88b55ae",
+    "commandId": "k040"
   }
 ]
